@@ -1,24 +1,25 @@
-import { Routes, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 
-import '../styles/wrap.css';
+import '../styles/Wrap.css';
 
-import Nav from './nav.js';
-function Wrap(props){
+/*components*/
+import Nav from './Nav.js';
+import Canvas from './Canvas.js'
 
+function Wrapper(){
   return(    
     <div>
       <Nav />
       <section>
         <Routes>
-          <Route path="/"  element={<>main</>}/>
+          <Route path="/"  element={ <Canvas /> }/>
           <Route path="/about" element={ <>about</> } />
           <Route path="/projects" element={ <>projects</> } />
           <Route path="/contact" element={ <>contact</> } />
         </Routes>
       </section>
-      
     </div> 
   )
 }
 
-export default Wrap;
+export default Wrapper;

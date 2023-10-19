@@ -3,14 +3,12 @@ import './App.css';
 import './styles/theme.css';
 
 /*components*/
-import Wrap from './components/wrap.js';
-
+import Wrapper from './components/Wrapper.js'
 
 function App() {
-
   return (
     <div className="App">
-      <Wrap />
+      <Wrapper />
     </div>
   );
 }
