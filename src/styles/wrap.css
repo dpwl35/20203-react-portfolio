@@ -9,10 +9,14 @@
   display: flex;
   gap: 6.25rem;
 }
+.nav .logo {
+  color: #FF3B00;
+}
 .nav .menu {
   display: flex;
   align-items: center;
   gap: 6rem;
+  color: #FF3B00;
 }
 section {
   height: calc(100vh - 4.375rem);

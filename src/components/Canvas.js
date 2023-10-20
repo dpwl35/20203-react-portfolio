@@ -1,8 +1,16 @@
-import { Engine, Render, Runner, Mouse, MouseConstraint, Composite, Bodies } from 'matter-js';
-import { useEffect, useRef,  } from 'react';
+import { Engine, Render, Runner, Mouse, MouseConstraint, Composite, Bodies, Events } from 'matter-js';
+import { useEffect, useRef, useState,  } from 'react';
 import '../styles/Main.css';
 
+const data = {
+  'AAA' : { title: 'AAA', desc: 'AAA 설명 입니다.'},
+  'BBB' : { title: 'BBB', desc: 'BBB 설명 입니다.'},
+  'CCC' : { title: 'CCC', desc: 'CCC 설명 입니다.'},
+  'DDD' : { title: 'DDD', desc: 'DDD 설명 입니다.'},
+}
+
 function Canvas() {
+  const [selected, setSelected] = useState(data['AAA'])
   const anchorRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -31,9 +39,15 @@ function Canvas() {
     initGround()
     initImageBoxes()
 
-    canvas.addEventListener('mousewheel', ()=> {
-      addRect(mouse.position.x, mouse.position.y, 50, 50)
+    Events.on(mouseConstraint, 'mousedown', ()=> {
+      const newSelected = mouseConstraint.body && data[mouseConstraint.body.label]
+      newSelected && setSelected (newSelected)
+      //console.log(mouseConstraint.body)
     })
+
+    // canvas.addEventListener('mousewheel', ()=> {
+    //   addRect(mouse.position.x, mouse.position.y, 50, 50)
+    // })
 
     function initScene() {
       engine = Engine.create()
@@ -72,17 +86,32 @@ function Canvas() {
     // }
     function initGround() {
       const ground = [
-        Bodies.rectangle(cw/2, ch, cw, 10, { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
-        Bodies.rectangle(cw/2, 0, cw, 10, { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
-        Bodies.rectangle(cw, ch/2, 10, ch, { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
-        Bodies.rectangle(0, ch/2, 10, ch, { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} })
+        Bodies.rectangle(cw/2, ch, cw, 10,  { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
+        Bodies.rectangle(cw/2, 0, cw, 10,   { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
+        Bodies.rectangle(cw, ch/2, 10, ch,  { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
+        Bodies.rectangle(0, ch/2, 10, ch,   { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} })
       ]
       Composite.add(engine.world, ground)
     }
 
     function initImageBoxes(){
-      addRect(cw/2, ch/2, 250, 250)
-      addRect(cw/2, ch/2, 250, 250)
+      const scale = 0.7 
+      const t1 = { w: 250 * scale, h:250 * scale}
+      addRect(cw/2, 0, 150, 150, {
+        label : 'AAA'
+      })
+      addRect(cw/2, 0, t1.w, t1.h, {
+        label : 'BBB', 
+        chamfer: {radius: 20},
+        render: {xScale: scale, yScale: scale}} )
+      addRect(cw/2 - t1.w - 100 , 0, 150, 150, { 
+        label : 'CCC',
+        chamfer: {radius: 20},
+        render: {xScale: scale, yScale: scale}} )
+      addRect(cw/2 + t1.w, 0, 150, 150, { 
+        label : 'DDD',
+        chamfer: {radius: 20},
+        render: {xScale: scale, yScale: scale}} )
     }
 
     function addRect(x, y, w, h, options = {}) {
@@ -90,18 +119,22 @@ function Canvas() {
       Composite.add(engine.world, rect)
     }
 
-    
     window.addEventListener('resize', resize)
     resize()
 
-    //console.log(anchorRef.current?.offsetWidth) // 컴포넌트의 width
-    //console.log(anchorRef.current?.offsetHeight) // 컴포넌트의 height
+   return () => {
+    window.removeEventListener('resize', resize)
+   }
   
   }, [])
 
   return (
     <div className="main-canvas" ref={anchorRef}>
       <canvas ref={canvasRef} > </canvas>
+      <div className='canvas-item'>
+        <p className='canvas-item-title'>{selected.title}</p>
+        <p className='canvas-item-desc'>{selected.desc}</p>
+      </div>
     </div>
   );
 }

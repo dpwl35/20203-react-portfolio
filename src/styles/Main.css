@@ -10,3 +10,22 @@
   position: absolute;
   background: transparent !important;
 }
+
+.main-canvas .canvas-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid #FF3B00;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+.main-canvas .canvas-item p {
+  color: #FF3B00;
+}
+.main-canvas .canvas-item .canvas-item-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.main-canvas .canvas-item .canvas-item-desc {
+  font-size: 14px;
+}
