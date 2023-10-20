@@ -5,6 +5,7 @@ import '../styles/Wrap.css';
 /*components*/
 import Nav from './Nav.js';
 import Canvas from './Canvas.js'
+import Projects from './Projects.js'
 
 function Wrapper(){
   return(    
@@ -14,7 +15,7 @@ function Wrapper(){
         <Routes>
           <Route path="/"  element={ <Canvas /> }/>
           <Route path="/about" element={ <>about</> } />
-          <Route path="/projects" element={ <>projects</> } />
+          <Route path="/projects" element={ <Projects />  } />
           <Route path="/contact" element={ <>contact</> } />
         </Routes>
       </section>

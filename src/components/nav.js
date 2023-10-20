@@ -1,5 +1,6 @@
 import { useNavigate,} from 'react-router-dom';
-function Nav(props){
+
+function Nav(){
   const navigate = useNavigate();
   const menuItem = [
     {
