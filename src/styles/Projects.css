@@ -1,4 +1,11 @@
-
+.projects {
+  color: var(--text-color);
+}
+.projects-title {
+  padding: 6rem 0;
+  font-family: 'LibreFranklin-Black';
+  font-size: 10rem;
+}
 .projects-list {
   width: 100%;
   display: flex;
@@ -6,13 +13,91 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
 .projects-card {
   width: calc(25% - 2rem);
-  background-color: pink;
   margin-bottom: 2rem;
+  color: #222;
+}
+.projects-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  border-radius: 36px 36px 0 0;
+  overflow: hidden;
+}
+.projects-desc {
+  border-radius: 0 0 36px 36px;
+  padding: 2rem;
+}
+.projects-desc > p {
+  margin-bottom: 1rem;
+}
+.projects-desc .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.card-desc {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.card-tag span{
+  display: inline-block;
+  font-size: 0.75rem;
+  border: 1px solid #222;
+  margin-right: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+.card-link {display: flex;}
+.card-link a{
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.75rem 0.75rem 1.75rem;
+  border-radius: 99rem;
+  background: #222;
+  transition: all 0.2s ease;
+  color: var(--text-color);
+  margin-right: 0.5rem;
+}
+.card-link a:after{
+  content: '→';
+  display: flex;
+  width: 0rem;
+  height: 0.8rem;
+  position: relative;
+  transition: all 0.2s 0.2s ease;
+  margin-left: 0rem;
+  opacity: 0;
+}
+.card-link a:hover:after {
+  width: 0.8rem;
+  margin-left: 0.5rem;
+  opacity: 1;
+}
+.projects-card:hover > div {
+  border-radius: 3.5rem;
+  transition: all 0.2s 0.2s ease-in-out;
 }
 
-.projects-img {
-  height: 250px;
+.projects-card:nth-child(1) .projects-img,
+.projects-card:nth-child(1) .projects-desc {
+  background-color: #AA81B7;
+}
+.projects-card:nth-child(2) .projects-img,
+.projects-card:nth-child(2) .projects-desc {
+  background-color: #007AFF;
+}
+.projects-card:nth-child(3) .projects-img,
+.projects-card:nth-child(3) .projects-desc {
+  background-color: #46B779;
+}
+.projects-card:nth-child(4) .projects-img,
+.projects-card:nth-child(4) .projects-desc {
+  background-color: #FFF24E;
 }

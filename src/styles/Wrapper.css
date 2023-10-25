@@ -1,0 +1,48 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3.5rem;
+  z-index: 100000;
+  backdrop-filter: blur(10px);
+}
+.nav .nav-left {
+  display: flex;
+  gap: 6.25rem;
+  height: 100%;
+}
+.nav .menu {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  color: var(--text-color);
+}
+.nav .menu li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav .nav-right {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--text-color);
+}
+.nav .nav-right a {
+  font-size: 0.75rem;
+  border: 1px solid var(--text-color);
+  border-radius: 0.5rem;
+  padding: 0.25rem 1rem;
+}
+section {
+  width: 100%;
+  height: calc(100vh - 4.375rem);
+  padding: 0 3.5rem;
+  color: var(--text-color);
+}

@@ -8,7 +8,6 @@ function Projects(){
   const getData = async () => {
     try {
       const result = await axios.get('https://dpwl35.github.io/api/portfolio-api/project.json');
-      console.log(result.data);
       setProject(result.data);
     } catch (error) {
       console.log('Data load failed');
@@ -20,30 +19,40 @@ function Projects(){
   }, [])
 
   return(    
-    <ul className='projects-list'>
-      {
-        project && project.map((item, idx) => {
-          return (
-            <li className='projects-card' key={idx}>
-              <div className='projects-img'>이미지</div>
-              <div className='projects-desc'>
-                <p className='card-title'>{project[idx].title}</p>
-                <p className='card-desc'>{project[idx].description}</p>
-                <p className='card-tag'>
-                  {
-                    project[idx].tags && project[idx].tags.map((tags, idx)=> {
-                      return (
-                        <span key={idx}>{tags}</span>
-                      )
-                    })
-                  }
-                </p>
-              </div>
-            </li>
-          )
-        })
-      }
-    </ul> 
+    <div className='projects'>
+      <div className='projects-title'>Projects</div>
+      <ul className='projects-list'>
+        {
+          project && project.map((item, idx) => {
+            return (
+              <li className='projects-card' key={idx}>
+                <div className='projects-img'>
+                  <img src={project[idx].image} alt={project[idx].title}/>
+                </div>
+                <div className='projects-desc'>
+                  <p className='card-title'>{project[idx].title}</p>
+                  <p className='card-desc'>{project[idx].description}</p>
+                  <p className='card-tag'>
+                    {
+                      project[idx].tags && project[idx].tags.map((tags, idx)=> {
+                        return (
+                          <span key={idx}>{tags}</span>
+                        )
+                      })
+                    }
+                  </p>
+                  <div className='card-link'>
+                    <a className='card-link-blog' href={project[idx].demo} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Blog</a>
+                    <a href={project[idx].demo} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Demo</a>
+                    <a href={project[idx].git} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Github</a>
+                  </div>
+                </div>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
   )
 }
 

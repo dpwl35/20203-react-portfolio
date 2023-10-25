@@ -1,23 +1,34 @@
-import { Engine, Render, Runner, Mouse, MouseConstraint, Composite, Bodies, Events } from 'matter-js';
+import { Engine, Render, Runner, Mouse, MouseConstraint, Composites, Composite, Common, Bodies, Events } from 'matter-js';
 import { useEffect, useRef, useState,  } from 'react';
-import '../styles/Main.css';
+
+import '../styles/Canvas.css';
+
+/*image*/
+import img05 from '../assets/COOPERATION.png'
+import img04 from '../assets/CREATIVE.png'
+import img03 from '../assets/ADVENTURER.png'
+import img02 from '../assets/POSITIVE.png'
+import img01 from '../assets/OPTIMISTIC.png'
 
 const data = {
-  'AAA' : { title: 'AAA', desc: 'AAA 설명 입니다.'},
-  'BBB' : { title: 'BBB', desc: 'BBB 설명 입니다.'},
-  'CCC' : { title: 'CCC', desc: 'CCC 설명 입니다.'},
-  'DDD' : { title: 'DDD', desc: 'DDD 설명 입니다.'},
+  'aaa' : { title: 'desc', desc: '포트폴리오 입니다.'},
+  'OPTIMISTIC' : { title: 'OPTIMISTIC', desc: 'AAA 설명 입니다.'},
+  'POSITIVE' : { title: 'POSITIVE', desc: 'AAA 설명 입니다.'},
+  'ADVENTURER' : { title: 'ADVENTURER', desc: 'BBB 설명 입니다.'},
+  'CREATIVE' : { title: 'CREATIVE', desc: 'CCC 설명 입니다.'},
+  'COOPERATION' : { title: 'COOPERATION', desc: 'DDD 설명 입니다.'},
 }
 
 function Canvas() {
-  const [selected, setSelected] = useState(data['AAA'])
+  const [selected, setSelected] = useState(data['aaa'])
   const anchorRef = useRef(null);
   const canvasRef = useRef(null);
 
   useEffect(()=>{
     const canvas = canvasRef.current
     const canvasParent = canvas.parentNode
-
+    console.log(canvas)
+    console.log(canvas.width) // 크기별이미지로드
     // const cw = anchorRef.current?.offsetWidth
     // const ch = anchorRef.current?.offsetHeight
     let cw = canvasParent.clientWidth
@@ -38,14 +49,15 @@ function Canvas() {
     initMouse()
     initGround()
     initImageBoxes()
+    initCircle()
 
     Events.on(mouseConstraint, 'mousedown', ()=> {
       const newSelected = mouseConstraint.body && data[mouseConstraint.body.label]
       newSelected && setSelected (newSelected)
       //console.log(mouseConstraint.body)
-    })
+    },{ passive: false })
 
-    // canvas.addEventListener('mousewheel', ()=> {
+    // canvas.addEventListener('click', ()=> {
     //   addRect(mouse.position.x, mouse.position.y, 50, 50)
     // })
 
@@ -61,13 +73,21 @@ function Canvas() {
       Render.run(render)
       Runner.run(runner, engine)
     }
+
     function initMouse() {
       mouse = Mouse.create()
       mouseConstraint = MouseConstraint.create(engine, {
-        mouse: mouse
+        mouse: mouse,
+        constraint : {
+          stiffness: 0.2,
+          render: {
+            visible: false
+          }
+        }
       })
       Composite.add(engine.world, mouseConstraint)
     }
+
     // function initGround() {
     //   const segments = 4
     //   const deg = (Math.PI * 2) / segments
@@ -84,6 +104,8 @@ function Canvas() {
     //     addRect(x, y, width, height, { isStatic: true, angle: theta, render: {lineWidth: 15} })
     //   }
     // }
+    
+    //box
     function initGround() {
       const ground = [
         Bodies.rectangle(cw/2, ch, cw, 10,  { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
@@ -91,27 +113,49 @@ function Canvas() {
         Bodies.rectangle(cw, ch/2, 10, ch,  { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} }),
         Bodies.rectangle(0, ch/2, 10, ch,   { isStatic: true, render: {fillStyle: 'transparent',strokeStyle: 'transparent'} })
       ]
+      engine.timing.timeScale = 0.7;
       Composite.add(engine.world, ground)
     }
 
+    function initCircle() {
+      var stack = Composites.stack(20, 20, 30, 5, 0, 0, function(x, y) {
+        return Bodies.circle(x, y, Common.random(30, 10), { friction: 0.00001, restitution: 0.01, density: 0.001 });
+       });
+  
+       Composite.add(engine.world, stack);
+    }
+
+    //add bodies
     function initImageBoxes(){
-      const scale = 0.7 
-      const t1 = { w: 250 * scale, h:250 * scale}
-      addRect(cw/2, 0, 150, 150, {
-        label : 'AAA'
+      const scale = 0.7
+      const t1 = {w: 797 * scale, h: 99 * scale}
+      addRect(cw * 35 / 100, ch * 15 / 100, t1.w , t1.h, {
+        label : 'OPTIMISTIC', 
+        //chamfer: {radius: 20},
+        isStatic: true,
+        //angle: Math.PI * - 0.02,xScale: scale
+        render: { sprite: {texture : img01, xScale: scale, yScale: scale}  }
       })
-      addRect(cw/2, 0, t1.w, t1.h, {
-        label : 'BBB', 
-        chamfer: {radius: 20},
-        render: {xScale: scale, yScale: scale}} )
-      addRect(cw/2 - t1.w - 100 , 0, 150, 150, { 
-        label : 'CCC',
-        chamfer: {radius: 20},
-        render: {xScale: scale, yScale: scale}} )
-      addRect(cw/2 + t1.w, 0, 150, 150, { 
-        label : 'DDD',
-        chamfer: {radius: 20},
-        render: {xScale: scale, yScale: scale}} )
+      addRect(cw * 35 / 100, ch * 32 / 100, 628, 99, {
+        label : 'POSITIVE', 
+        isStatic: true,
+        render: { sprite: {texture : img02} }
+      })
+      addRect(cw * 30 / 100, ch * 47 / 100, 927, 97, {
+        label : 'ADVENTURER', 
+        isStatic: true,
+        render: { sprite: {texture : img03} }
+      })
+      addRect(cw * 50 / 100, ch * 62 / 100, 670, 99, {
+        label : 'CREATIVE', 
+        isStatic: true,
+        render: { sprite: {texture : img04} }
+      })
+      addRect(cw * 37 / 100, ch * 77 / 100, 972, 97, {
+        label : 'COOPERATION', 
+        isStatic: true,
+        render: { sprite: {texture : img05} }
+      })
     }
 
     function addRect(x, y, w, h, options = {}) {
@@ -124,6 +168,11 @@ function Canvas() {
 
    return () => {
     window.removeEventListener('resize', resize)
+    Composite.clear(engine.world)
+    Mouse.clearSourceEvents(mouse)
+    Runner.stop(runner)
+    Render.stop(render)
+    Engine.clear(engine)
    }
   
   }, [])

@@ -1,25 +1,27 @@
 import {Routes, Route} from 'react-router-dom';
 
-import '../styles/Wrap.css';
+import '../styles/Wrapper.css';
 
 /*components*/
-import Nav from './Nav.js';
+//import Nav from './Nav.js';
 import Canvas from './Canvas.js'
+import About from './About.js'
 import Projects from './Projects.js'
+import Contact from './Contact.js';
 
 function Wrapper(){
   return(    
-    <div>
-      <Nav />
+
+      
       <section>
         <Routes>
           <Route path="/"  element={ <Canvas /> }/>
-          <Route path="/about" element={ <>about</> } />
+          <Route path="/about" element={ <About /> } />
           <Route path="/projects" element={ <Projects />  } />
-          <Route path="/contact" element={ <>contact</> } />
+          <Route path="/contact" element={ <Contact />  } />
         </Routes>
       </section>
-    </div> 
+
   )
 }
 
