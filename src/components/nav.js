@@ -4,18 +4,22 @@ function Nav(){
   const navigate = useNavigate();
   const menuItem = [
     {
+      idx : '0',
       name: 'Portfolio',
       path: '/',
     },
     {
+      idx : '1',
       name: 'about',
       path: '/about',
     },
     {
+      idx : '2',
       name: 'projects',
       path: '/projects',
     },
     {
+      idx : '3',
       name: 'contact',
       path: '/contact',
     },
@@ -27,10 +31,10 @@ function Nav(){
 
   const dataTheme = document.documentElement  
   const location = useLocation();
-  const pathName = location.pathname.substr(1);
+  const pathName = location.pathname.replace('/', '');
 
-  //console.log(dataTheme)
-  //console.log(pathName)
+  // console.log(dataTheme.dataset)
+  // console.log(pathName)
 
   dataTheme.dataset.theme = pathName
 
@@ -41,7 +45,7 @@ function Nav(){
           {
             menuItem.map(({name, path})=>{
             return (
-              <li value={name}
+              <li className={ pathName === name ? name + ' active' :  name}
                   onClick={() => { 
                   navigate(path); 
                   setTheme(name); }} key={path}>

@@ -1,3 +1,5 @@
+
+/*menu*/
 .nav {
   position: fixed;
   top: 0;
@@ -29,6 +31,28 @@
   justify-content: center;
   cursor: pointer;
 }
+.nav .menu li.active {
+  position: relative;
+  font-weight: 600;
+}
+.nav .menu li.active::before{
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  width: 1rem;
+  height: 17px;
+  background-image: url(../assets/star.svg);
+  margin-right: 0.25rem;
+  animation: rotate-axis 3s linear infinite;
+}
+@keyframes rotate-axis {
+  from {
+      transform: perspective(800px) rotateY(0deg);
+  }
+  to {
+      transform: perspective(800px) rotateY(360deg);
+  }
+}
 .nav .nav-right {
   display: flex;
   gap: 0.5rem;
@@ -40,9 +64,13 @@
   border-radius: 0.5rem;
   padding: 0.25rem 1rem;
 }
+
+/*section*/
 section {
+  position: relative;
   width: 100%;
   height: calc(100vh - 4.375rem);
   padding: 0 3.5rem;
   color: var(--text-color);
 }
+

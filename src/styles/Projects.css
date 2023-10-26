@@ -25,6 +25,10 @@
   height: 300px;
   border-radius: 36px 36px 0 0;
   overflow: hidden;
+  padding: 1rem;
+}
+.projects-img img {
+  width: 100%;
 }
 .projects-desc {
   border-radius: 0 0 36px 36px;
@@ -80,8 +84,20 @@
   margin-left: 0.5rem;
   opacity: 1;
 }
+.card-link a.card-link-blog:after {
+  content: '회고록';
+  white-space:nowrap;
+  font-size: 0.75rem;
+}
+.card-link a.card-link-blog:hover:after {
+  width: 2rem;
+}
 .projects-card:hover > div {
   border-radius: 3.5rem;
+  transition: all 0.2s 0.2s ease-in-out;
+}
+.projects-card:hover .projects-img img {
+  transform: scale(1.2);
   transition: all 0.2s 0.2s ease-in-out;
 }
 

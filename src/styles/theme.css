@@ -1,39 +1,25 @@
-::-webkit-scrollbar {
-  width: 10px;  
-}
-
-::-webkit-scrollbar-thumb {
-  background: #FF3B00; 
-  border-radius: 10px; 
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(220, 20, 60, .1);
-}
 /* Theme var */
-/* Main */
 :root {
   --main-bg: #F4F0E6;
   --text-color: #FF3B00;
+  --system-white:#F4F0E6;
 }
 
+/* Main */
 [data-theme='main'] {
   --main-bg: #F4F0E6;
   --text-color: #FF3B00;
 }
-
 /* about */
 [data-theme='about'] {
   --main-bg: #5A7F43;
   --text-color: #F4F0E6;
 }
-
 /* projects */
 [data-theme='projects'] {
   --main-bg: #1A1A1A;
   --text-color: #F4F0E6;
 }
-
 /* contact */
 [data-theme='contact'] {
   --main-bg: #004DB3;

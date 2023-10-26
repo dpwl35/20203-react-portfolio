@@ -11,7 +11,7 @@ import img02 from '../assets/POSITIVE.png'
 import img01 from '../assets/OPTIMISTIC.png'
 
 const data = {
-  'aaa' : { title: 'desc', desc: '포트폴리오 입니다.'},
+  'aaa' : { title: 'desc', desc: '안녕하세요. 포트폴리오 입니다.'},
   'OPTIMISTIC' : { title: 'OPTIMISTIC', desc: 'AAA 설명 입니다.'},
   'POSITIVE' : { title: 'POSITIVE', desc: 'AAA 설명 입니다.'},
   'ADVENTURER' : { title: 'ADVENTURER', desc: 'BBB 설명 입니다.'},

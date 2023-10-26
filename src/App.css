@@ -54,6 +54,21 @@ table {
 	border-spacing: 0;
 }
 
+
+/*scrollbar*/
+::-webkit-scrollbar {
+  width: 10px;  
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF3B00; 
+  border-radius: 10px; 
+}
+::-webkit-scrollbar-track {
+  background: rgba(220, 20, 60, .1);
+}
+
+
 *,
 *::before,
 *::after {
@@ -78,6 +93,6 @@ a {
 }
 .App, .App > div{
 	width: 100%;
-  background-color: var(--main-bg);
+  background: var(--main-bg);
 	box-sizing: border-box;
 }
