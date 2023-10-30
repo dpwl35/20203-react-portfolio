@@ -59,7 +59,7 @@
 }
 .card-link {
   display: flex;
-  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .card-link a{
   width: fit-content;
@@ -71,7 +71,6 @@
   background: #222;
   transition: all 0.2s ease;
   color: var(--text-color);
-  margin-right: 0.5rem;
 }
 .card-link a:after{
   content: '→';

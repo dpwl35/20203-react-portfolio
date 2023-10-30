@@ -27,8 +27,9 @@ function Canvas() {
   useEffect(()=>{
     const canvas = canvasRef.current
     const canvasParent = canvas.parentNode
-    console.log(canvas)
-    console.log(canvas.width) // 크기별이미지로드
+    
+    //console.log(canvas)
+    //console.log('캔버스넓이:'+ cw)
     // const cw = anchorRef.current?.offsetWidth
     // const ch = anchorRef.current?.offsetHeight
     let cw = canvasParent.clientWidth
@@ -119,42 +120,96 @@ function Canvas() {
 
     function initCircle() {
       var stack = Composites.stack(20, 20, 30, 5, 0, 0, function(x, y) {
-        return Bodies.circle(x, y, Common.random(30, 10), { friction: 0.00001, restitution: 0.01, density: 0.001 });
+        
+        let size1, size2
+
+        if (cw <= 480) {
+          size1 = 15
+          size2 = 10
+        } else if(cw <= 768) {
+          size1 = 20
+          size2 = 10
+        } else {
+          size1 = 30
+          size2 = 10
+        }
+
+        return Bodies.circle(x, y, Common.random(size1, size2), { friction: 0.00001, restitution: 0.01, density: 0.001 });
+
        });
   
        Composite.add(engine.world, stack);
     }
 
     //add bodies
-    function initImageBoxes(){
-      const scale = 1
-      const t1 = {w: 797 * scale, h: 99 * scale}
-      addRect(cw * 35 / 100, ch * 15 / 100, t1.w , t1.h, {
+    function initImageBoxes(){  
+      let scale = 1
+      let t1 = {w: 797 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 15 / 100}
+      let t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 32 / 100}
+      let t3 = {w: 927 * scale, h: 97 * scale, l: cw * 36 / 100, t: ch * 47 / 100}
+      let t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 62 / 100}
+      let t5 = {w: 972 * scale, h: 97 * scale, l: cw * 33 / 100, t: ch * 77 / 100}
+      
+      if (cw <= 480) {
+        scale = 0.35
+        t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
+        t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 30 / 100}
+        t3 = {w: 927 * scale, h: 97 * scale, l: cw * 48 / 100, t: ch * 45 / 100}
+        t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 58 / 100}
+        t5 = {w: 972 * scale, h: 97 * scale, l: cw * 50 / 100, t: ch * 70 / 100}
+        console.log(scale)
+      } else if (cw <= 768){
+        scale = 0.6
+        t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
+        t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 30 / 100}
+        t3 = {w: 927 * scale, h: 97 * scale, l: cw * 48 / 100, t: ch * 45 / 100}
+        t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 58 / 100}
+        t5 = {w: 972 * scale, h: 97 * scale, l: cw * 50 / 100, t: ch * 70 / 100}
+        console.log(scale)
+      } else if (cw <= 1024) {
+        scale = 0.8
+        t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
+        t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 30 / 100}
+        t3 = {w: 927 * scale, h: 97 * scale, l: cw * 48 / 100, t: ch * 45 / 100}
+        t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 58 / 100}
+        t5 = {w: 972 * scale, h: 97 * scale, l: cw * 50 / 100, t: ch * 70 / 100}
+        console.log(scale)
+      } else if  (cw <= 1440){
+        scale = 0.9
+        t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
+        t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 32 / 100}
+        t3 = {w: 927 * scale, h: 97 * scale, l: cw * 36 / 100, t: ch * 47 / 100}
+        t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 62 / 100}
+        t5 = {w: 972 * scale, h: 97 * scale, l: cw * 40 / 100, t: ch * 77 / 100}
+        console.log(scale)
+      }
+
+      addRect(t1.l, t1.t, t1.w , t1.h, {
         label : 'OPTIMISTIC', 
         //chamfer: {radius: 20},
         isStatic: true,
         //angle: Math.PI * - 0.02,xScale: scale
         render: { sprite: {texture : img01, xScale: scale, yScale: scale}  }
       })
-      addRect(cw * 35 / 100, ch * 32 / 100, 628, 99, {
+      addRect(t2.l, t2.t, t2.w , t2.h, {
         label : 'POSITIVE', 
         isStatic: true,
-        render: { sprite: {texture : img02} }
+        render: { sprite: {texture : img02,  xScale: scale, yScale: scale} }
       })
-      addRect(cw * 30 / 100, ch * 47 / 100, 927, 97, {
+      addRect(t3.l, t3.t, t3.w , t3.h, {
         label : 'ADVENTURER', 
         isStatic: true,
-        render: { sprite: {texture : img03} }
+        render: { sprite: {texture : img03,  xScale: scale, yScale: scale} }
       })
-      addRect(cw * 50 / 100, ch * 62 / 100, 670, 99, {
+      addRect(t4.l, t4.t, t4.w , t4.h, {
         label : 'CREATIVE', 
         isStatic: true,
-        render: { sprite: {texture : img04} }
+        render: { sprite: {texture : img04,  xScale: scale, yScale: scale} }
       })
-      addRect(cw * 37 / 100, ch * 77 / 100, 972, 97, {
+      addRect(t5.l, t5.t, t5.w , t5.h, {
         label : 'COOPERATION', 
         isStatic: true,
-        render: { sprite: {texture : img05} }
+        render: { sprite: {texture : img05,  xScale: scale, yScale: scale} }
       })
     }
 
