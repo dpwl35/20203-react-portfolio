@@ -4,7 +4,7 @@
 .projects-title {
   padding: 6rem 0;
   font-family: 'LibreFranklin-Black';
-  font-size: 10rem;
+  font-size: var(--font-size-lg);
 }
 .projects-list {
   width: 100%;
@@ -25,10 +25,11 @@
   height: 300px;
   border-radius: 36px 36px 0 0;
   overflow: hidden;
-  padding: 1rem;
 }
 .projects-img img {
   width: 100%;
+  position: relative;
+  top: -1px;
 }
 .projects-desc {
   border-radius: 0 0 36px 36px;
@@ -43,12 +44,12 @@
   margin-bottom: 1.5rem;
 }
 .card-desc {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   line-height: 1.25rem;
 }
 .card-tag span{
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: var(--font-size-sm);
   border: 1px solid #222;
   margin-right: 0.5rem;
   padding: 0.125rem 0.5rem;
@@ -56,7 +57,10 @@
   border-radius: 0.25rem;
   font-weight: 600;
 }
-.card-link {display: flex;}
+.card-link {
+  display: flex;
+  flex-wrap: wrap;
+}
 .card-link a{
   width: fit-content;
   display: flex;
@@ -87,7 +91,7 @@
 .card-link a.card-link-blog:after {
   content: '회고록';
   white-space:nowrap;
-  font-size: 0.75rem;
+  font-size: var(--font-size-sm);
 }
 .card-link a.card-link-blog:hover:after {
   width: 2rem;
@@ -116,4 +120,36 @@
 .projects-card:nth-child(4) .projects-img,
 .projects-card:nth-child(4) .projects-desc {
   background-color: #FFF24E;
+}
+
+@media screen and (max-width:1440px)  { 
+  .projects-card { width: calc(50% - 1rem); }
+}
+
+@media all and (min-width:768px) and (max-width:1023px) { 
+  .projects-card { width: calc(100%); }
+  .projects-title { padding: 3rem 0; }
+} 
+
+@media all and (min-width:480px) and (max-width:767px) {
+  .projects-card { width: calc(100%); }
+  .projects-title { padding: 3rem 0; }
+}
+
+@media all and (max-width:479px) {
+  .projects-card { width: calc(100%); }
+  .projects-title { padding: 3rem 0;}
+  .projects-desc { padding: 1rem;}
+  .projects-img { height: 200px; }
+  .projects-desc > p { margin-bottom: 0.75rem; }
+  .projects-desc .card-title { margin-bottom: 1rem; }
+  .card-link a { padding: 0.5rem 1rem; font-size: 0.75rem; }
+  .card-link a:after {display: none;}
+}
+
+@media all and (max-width:320px) {
+  .nav .nav-right {display: none;}
+  .projects-desc .card-title {
+    font-size: 1rem;
+  }
 }

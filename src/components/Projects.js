@@ -42,7 +42,7 @@ function Projects(){
                     }
                   </p>
                   <div className='card-link'>
-                    <a className='card-link-blog' href={project[idx].demo} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Blog</a>
+                    <a className='card-link-blog' href={project[idx].blog} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Blog</a>
                     <a href={project[idx].demo} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Demo</a>
                     <a href={project[idx].git} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Github</a>
                   </div>

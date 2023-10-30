@@ -25,9 +25,9 @@ function Nav(){
     },
   ]
 
-  const setTheme = (name) => {
-    document.documentElement.setAttribute('data-theme', name);
-  };
+  // const setTheme = (name) => {
+  //   document.documentElement.setAttribute('data-theme', name);
+  // };
 
   const dataTheme = document.documentElement  
   const location = useLocation();
@@ -45,10 +45,11 @@ function Nav(){
           {
             menuItem.map(({name, path})=>{
             return (
-              <li className={ pathName === name ? name + ' active' :  name}
+              <li className={ location.pathname === path ? name + ' active' :  name}
                   onClick={() => { 
                   navigate(path); 
-                  setTheme(name); }} key={path}>
+                  //setTheme(name); 
+                  }} key={path}>
                 <div>{name}</div>
               </li>
             )

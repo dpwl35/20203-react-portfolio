@@ -90,9 +90,9 @@ a {
 	padding-top: 4.375rem;
 	display: flex;
 	flex-direction: column;
+	background: var(--main-bg);
 }
 .App, .App > div{
 	width: 100%;
-  background: var(--main-bg);
 	box-sizing: border-box;
 }

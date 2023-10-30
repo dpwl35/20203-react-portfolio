@@ -74,3 +74,34 @@ section {
   color: var(--text-color);
 }
 
+
+
+
+@media all and (min-width:768px) and (max-width:1023px) { 
+  .nav .menu {gap: 2rem;}
+} 
+
+@media all and (min-width:480px) and (max-width:767px) {
+  .nav, section { padding:  0 2rem;}
+  .nav .menu {gap: 2.5rem;}
+  .nav .nav-right a {
+    background-color: var(--text-color);
+    font-size: 0;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+  }
+}
+
+@media all and (max-width:479px) {
+  .nav, section { padding:  0 1.5rem;}
+  .nav .menu {gap: 1rem; font-size: var(--font-size-sm);}
+  .nav .menu li.active::before {display: none;}
+  .nav .nav-right a {
+    background-color: var(--text-color);
+    font-size: 0;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+  }
+}

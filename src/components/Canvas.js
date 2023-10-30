@@ -127,7 +127,7 @@ function Canvas() {
 
     //add bodies
     function initImageBoxes(){
-      const scale = 0.7
+      const scale = 1
       const t1 = {w: 797 * scale, h: 99 * scale}
       addRect(cw * 35 / 100, ch * 15 / 100, t1.w , t1.h, {
         label : 'OPTIMISTIC', 

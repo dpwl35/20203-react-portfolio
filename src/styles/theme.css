@@ -3,6 +3,9 @@
   --main-bg: #F4F0E6;
   --text-color: #FF3B00;
   --system-white:#F4F0E6;
+  --font-size-lg: 8rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.875rem;
 }
 
 /* Main */
@@ -24,4 +27,20 @@
 [data-theme='contact'] {
   --main-bg: #004DB3;
   --text-color: #F4F0E6;
+}
+
+@media screen and (max-width:1440px)  { 
+  :root {
+    --font-size-lg: 5rem;
+  }
+}
+@media screen and (max-width:768px)  { 
+  :root {
+    --font-size-lg: 4rem;
+  }
+}
+@media screen and (max-width:320px)  { 
+  :root {
+    --font-size-lg: 3rem;
+  }
 }
