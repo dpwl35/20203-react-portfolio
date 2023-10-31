@@ -1,0 +1,90 @@
+.contact-wrap {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 2rem);
+}
+.contact-grid {
+  height: 100%;
+  grid-column-gap: 0.52rem;
+  grid-row-gap: 0.52rem;
+  grid-template-rows: 1fr 1px 1fr 1px 1fr;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr 1px 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+.back {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  opacity: 0.2;
+}
+.contact-grid li span { 
+  background-color: var(--system-white);
+}
+
+/*가로*/
+.horizontal-lines {
+  grid-column-gap: 0.52rem;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr 1px 1fr;
+  grid-auto-columns: 1fr;
+  padding: 0;
+  display: grid;
+}
+.horizontal-lines span { height: 1px; }
+.contact-grid li:nth-child(1){ grid-area: 2/1/3/10;}
+.contact-grid li:nth-child(2){ grid-area: 4/1/5/10;}
+
+.h-line span:nth-child(1) {grid-area: span 1/span 1/span 1/span 1;}
+.h-line span:nth-child(2) {grid-area: 1/3/2/4;}
+.h-line span:nth-child(3) {grid-area: 1/5/2/6;}
+.h-line span:nth-child(4) {grid-area: 1/7/2/8;}
+.h-line span:nth-child(5) {grid-area: 1/9/2/10;}
+
+/*세로*/
+.vertical-lines {
+  grid-column-gap: 0.52rem;
+  grid-row-gap: 0.52rem;
+  grid-template-rows: 1fr 1px 1fr 1px 1fr;
+  grid-template-columns: 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+.contact-grid li:nth-child(3){ grid-area: 1/2/6/3;}
+.contact-grid li:nth-child(4){ grid-area: 1/4/6/5;}
+.contact-grid li:nth-child(5){ grid-area: 1/6/6/7;}
+.contact-grid li:nth-child(6){ grid-area: 1/8/6/9;}
+
+.v-line span:nth-child(1) {grid-area: 1/1/2/2;}
+.v-line span:nth-child(2) {grid-area: 3/1/4/2;}
+.v-line span:nth-child(3) {grid-area: 5/1/6/2;}
+
+.front {position: relative; z-index: 10;}
+.front > div { border-radius: 0.5rem;}
+.front > div:nth-child(1) {
+  grid-area: 1/1/2/2;
+  padding: 2rem;
+}
+.front > div:nth-child(2) {
+  grid-area: 3/1/4/10;
+  font-size: var(--font-size-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--system-blue);
+}
+.front > div:nth-child(3) {
+  grid-area: 5/7/6/8;
+  background-color: var(--system-white);
+}
+.front > div:nth-child(4) {
+  grid-area: 5/9/6/10;
+  background-color: var(--system-white);
+}
+.contact-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+.contact-desc {margin-top: 2rem;}
