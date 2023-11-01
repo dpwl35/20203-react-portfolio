@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { motion } from "framer-motion"
 import { useEffect, useState } from 'react';
 
 import '../styles/Projects.css';
@@ -14,6 +15,24 @@ function Projects(){
     }
   }
 
+  const container = {
+    hidden: {
+      opacity: 0
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const card = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   useEffect(()=>{
     getData();
   }, [])
@@ -21,11 +40,11 @@ function Projects(){
   return(    
     <div className='projects'>
       <div className='projects-title'>Projects</div>
-      <ul className='projects-list'>
+      <motion.ul variants={container} initial="hidden" animate="visible" className='projects-list'>
         {
           project && project.map((item, idx) => {
             return (
-              <li className='projects-card' key={idx}>
+              <motion.li variants={card} className='projects-card' key={idx}>
                 <div className='projects-img'>
                   <img src={project[idx].image} alt={project[idx].title}/>
                 </div>
@@ -47,11 +66,11 @@ function Projects(){
                     <a href={project[idx].git} target='_blank' rel="noopener noreferrer" title="새창으로 열기">Github</a>
                   </div>
                 </div>
-              </li>
+              </motion.li>
             )
           })
         }
-      </ul>
+      </motion.ul>
     </div>
   )
 }

@@ -2,6 +2,7 @@
 :root {
   --main-bg: #F4F0E6;
   --text-color: #FF3B00;
+  --system-orang:#FF3B00;
   --system-white:#F4F0E6;
   --system-black: #222;
   --system-blue: #004DB3;
@@ -29,6 +30,9 @@
 [data-theme='contact'] {
   --main-bg: #004DB3;
   --text-color: #F4F0E6;
+  ::selection {
+    background-color: var(--system-orang);
+  }
 }
 
 @media screen and (max-width:1440px)  { 
