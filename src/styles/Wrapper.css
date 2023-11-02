@@ -30,6 +30,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-family: 'PPMori-Regular';
 }
 .nav .menu li.active {
   position: relative;

@@ -3,8 +3,8 @@ import '../styles/About.css';
 
 function About(){
   let text = "Web Publisher"
-  //const title = ['W', 'e', 'b','-','P','u','b','l','i','s','h','e','r']
   let splitStr = [...text] 
+
   const list = {
     hidden: {
       opacity: 0
@@ -33,6 +33,7 @@ function About(){
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 }
   };
+  
   return(    
     <div className='about-wrap'>
       <motion.div variants={list} initial="hidden" animate="visible" className='about-grid'>
