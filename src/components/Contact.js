@@ -28,8 +28,8 @@ function Contact(){
       textSub : 'study',
       delay : '1.8'
     }
-
   ]
+
   const variants = {
     start: { pathLength: 0 },
     end: { pathLength: 1 }
@@ -62,7 +62,7 @@ function Contact(){
           <p className='contact-title'>contact</p>
           <p className='contact-desc'>함께 일할 사람을 찾고 계신가요?</p>
         </div>
-        <div>
+        <div className='contact-email'>
           <p className='motion-box'>
             dpwl9435
             <motion.span
@@ -75,14 +75,14 @@ function Contact(){
             gmail.c
             <motion.span
               initial={{ opacity: 0, y: -80,  }}
-              animate={{ opacity: 1, y: 0, }}
+              animate={{ opacity: 1, y: 0,  }}
             >o
             </motion.span>
             <motion.span
               initial={{ rotate: 0 }}
               animate={{ rotate: [0, -10, 0],  translateY:0, translateX: 0 }}
               transition={{
-                delay: 0.1,
+                delay: 0,
                 duration: 1,
                 ease: "easeInOut",
                 times: 0.5,
@@ -90,6 +90,7 @@ function Contact(){
                 //repeatDelay: 4
               }}
             >m</motion.span>
+            <span className='send'>메일 보내기</span>
           </p>
         </div>
         {
@@ -110,8 +111,16 @@ function Contact(){
                       d="M1 1.5H40M40 1.5V41M40 1.5L1 40.5" stroke="#F4F0E6" stroke-width="2"/>
                   </svg>
                 </div>
-                <p>{linkBox[idx].textMain}</p>
-                <p>{linkBox[idx].textSub}</p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20,  }}
+                  animate={{ opacity: 1, y: 0,  }}
+                  transition={{delay: linkBox[idx].delay, }}
+                >{linkBox[idx].textMain}</motion.p>
+                <motion.p
+                  initial={{ opacity: 0, }}
+                  animate={{ opacity: 0.5, }}
+                  transition={{delay: linkBox[idx].delay, duration: 1}}
+                >{linkBox[idx].textSub}</motion.p>
               </a>
             </div>
             )
