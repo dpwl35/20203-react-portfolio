@@ -8,6 +8,13 @@ import '../styles/About.css';
 import icon_html from '../assets/icon_html.png'
 import icon_css from '../assets/icon_css.png'
 import icon_js from '../assets/icon_js.png'
+import icon_react from '../assets/icon_react.png'
+import icon_vue from '../assets/icon_vue.png'
+import icon_next from '../assets/icon_next.png'
+import icon_figma from '../assets/icon_figma.png'
+import icon_ps from '../assets/icon_ps.png'
+import icon_ai from '../assets/icon_ai.png'
+
 import checkmark from '../assets/checkmark.svg'
 
 function About(){
@@ -109,20 +116,19 @@ function About(){
               <p>JavaScript</p>
             </div>
             <ul className="icon">
-              <li><img src={icon_html} alt="아이콘"></img></li>
-              <li><img src={icon_css} alt="아이콘"></img></li>
-              <li><img src={icon_js} alt="아이콘"></img></li>
+              <li><img src={icon_html} alt="html 아이콘"></img></li>
+              <li><img src={icon_css}  alt="css 아이콘"></img></li>
+              <li><img src={icon_js}   alt="js 아이콘"></img></li>
             </ul>
             <ul className="list">
-              <li><img src={checkmark} alt="아이콘"></img> 시맨틱 마크업</li>
-              <li><img src={checkmark} alt="아이콘"></img> 시맨틱 마크업</li>
-              <li><img src={checkmark} alt="아이콘"></img> 시맨틱 마크업</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
             </ul>
             <div className="description">웹 표준 및 웹 접근성에 대한 이해를 바탕으로 콘텐츠를 구조화하고 스타일링합니다. 다양한 디바이스와 브라우저에 대응하여 크로스 브라우징 이슈를 해결하고 사용자에게 일관된 화면을 제공합니다.</div>
           </div>
           <div className="bg-img settings">
             <div className="range">
-
               <div className="select">
                 <label htmlFor="fontFamily">Font Family</label>
                 <select name="fontFamily" onChange={fontChange}>
@@ -143,10 +149,9 @@ function About(){
               </div>
 
               <div className="color">
-                <label htmlFor="picker">Line Height</label>
+                <label htmlFor="picker">Text Color</label>
                 <input className="picker" id="picker" onChange={colorChange} type="color" defaultValue={color} />
               </div>
-
             </div>
 
             <div className="range-value AbrilFatface">{color.toUpperCase()}</div>
@@ -156,13 +161,77 @@ function About(){
               <br />
               "Hypertext" refers to links that connect web pages to one another, either within a single website or between websites. Links are a fundamental aspect of the Web. By uploading content to the Internet and linking it to pages created by other people, you become an active participant in the World Wide Web.
             </div>
-            <div className="range-value LibreFranklin">{font}</div>
+            <div className="range-value LibreFranklin align-right">{font}</div>
             <div className="range-value AbrilFatface align-right">{size} / {height}</div>
           </div>
           <div className="vertical"></div>
           <div className="vertical v1"></div>
           <div className="vertical v2"></div>
+          <div className="img2">durleh</div>
+      </div>
+
+      <div className="about-grid2 framework">
+          <div className="horizontal"></div>
+          <div className="horizontal"></div>
+          <div className="horizontal"></div>
+          <div className="horizontal"></div>
+          <div className="title left">Framework</div>
+          <div className="content left">
+            <div className="skill">
+              <p>Vue</p>
+              <p>React</p>
+              <p>Next.js</p>
+            </div>
+            <ul className="icon">
+              <li><img src={icon_vue}   alt="vue 아이콘"></img></li>
+              <li><img src={icon_react} alt="react 아이콘"></img></li>
+              <li><img src={icon_next}  alt="next 아이콘"></img></li>
+            </ul>
+            <ul className="list">
+              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+            </ul>
+            <div className="description">웹 표준 및 웹 접근성에 대한 이해를 바탕으로 콘텐츠를 구조화하고 스타일링합니다. 다양한 디바이스와 브라우저에 대응하여 크로스 브라우징 이슈를 해결하고 사용자에게 일관된 화면을 제공합니다.</div>
+          </div>
+          <div className="bg-img settings">
+
+          </div>
+          <div className="vertical"></div>
+          <div className="vertical v1"></div>
+          <div className="vertical v2"></div>
           <div className="img2"></div>
+      </div>
+
+      <div className="about-grid2 design">
+        <div className="horizontal"></div>
+        <div className="horizontal"></div>
+        <div className="horizontal"></div>
+        <div className="horizontal"></div>
+        <div className="title left">SPA Framework</div>
+        <div className="content left">
+          <div className="skill">
+            <p>Figma</p>
+            <p>Photoshop</p>
+            <p>Illustrator</p>
+          </div>
+          <ul className="icon">
+            <li><img src={icon_figma} alt="피그마 아이콘"></img></li>
+            <li><img src={icon_ps}    alt="포토샵 아이콘"></img></li>
+            <li><img src={icon_ai}    alt="일러스트레이터 아이콘"></img></li>
+          </ul>
+          <ul className="list">
+            <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+            <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+            <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+          </ul>
+          <div className="description">웹 표준 및 웹 접근성에 대한 이해를 바탕으로 콘텐츠를 구조화하고 스타일링합니다. 다양한 디바이스와 브라우저에 대응하여 크로스 브라우징 이슈를 해결하고 사용자에게 일관된 화면을 제공합니다.</div>
+        </div>
+        <div className="bg-img settings">
+
+        </div>
+        <div className="vertical"></div>
+        <div className="vertical v1"></div>
       </div>
 
       
@@ -176,9 +245,7 @@ function About(){
           🤟😎🤟
         </motion.div>
       </div>
-      <div className="">
 
-      </div>
     </div> 
   )
 }
