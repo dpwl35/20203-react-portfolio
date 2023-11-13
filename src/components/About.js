@@ -122,10 +122,13 @@ function About(){
             </ul>
             <ul className="list">
               <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
-              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
-              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> SEO 최적화 </li>
+              <li><img src={checkmark} alt="check 아이콘"></img> 동적 UI 생성</li>
             </ul>
-            <div className="description">웹 표준 및 웹 접근성에 대한 이해를 바탕으로 콘텐츠를 구조화하고 스타일링합니다. 다양한 디바이스와 브라우저에 대응하여 크로스 브라우징 이슈를 해결하고 사용자에게 일관된 화면을 제공합니다.</div>
+            <div className="description">
+              웹 표준 및 웹 접근성에 대한 이해를 바탕으로 콘텐츠를 구조화하고 스타일링합니다. 다양한 디바이스와 브라우저에 대응하여 크로스 브라우징 이슈를 해결하고 사용자에게 일관된 화면을 제공합니다.
+              DOM요소에 접근하여 Event를 활용하여 동적인 UI를 만들 수 있습니다. 
+            </div>
           </div>
           <div className="bg-img settings">
             <div className="range">
@@ -175,7 +178,7 @@ function About(){
           <div className="horizontal"></div>
           <div className="horizontal"></div>
           <div className="horizontal"></div>
-          <div className="title left">Framework</div>
+          <div className="title left">SPA Framework</div>
           <div className="content left">
             <div className="skill">
               <p>Vue</p>
@@ -188,11 +191,14 @@ function About(){
               <li><img src={icon_next}  alt="next 아이콘"></img></li>
             </ul>
             <ul className="list">
-              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
-              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
-              <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> Component</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> Router</li>
+              <li><img src={checkmark} alt="check 아이콘"></img> props, state</li>
             </ul>
-            <div className="description">웹 표준 및 웹 접근성에 대한 이해를 바탕으로 콘텐츠를 구조화하고 스타일링합니다. 다양한 디바이스와 브라우저에 대응하여 크로스 브라우징 이슈를 해결하고 사용자에게 일관된 화면을 제공합니다.</div>
+            <div className="description">
+              Vue, React, Next.js를 사용하는 환경에서도 퍼블리싱이 가능합니다.  기본적인 UI 기능 구현이 가능합니다. 
+              외부 라이브러리 styled-components / bootstrap 사용할 수 있습니다.
+            </div>
           </div>
           <div className="bg-img settings">
 
@@ -208,7 +214,7 @@ function About(){
         <div className="horizontal"></div>
         <div className="horizontal"></div>
         <div className="horizontal"></div>
-        <div className="title left">SPA Framework</div>
+        <div className="title left">Design tool</div>
         <div className="content left">
           <div className="skill">
             <p>Figma</p>
@@ -221,14 +227,151 @@ function About(){
             <li><img src={icon_ai}    alt="일러스트레이터 아이콘"></img></li>
           </ul>
           <ul className="list">
-            <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
-            <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
-            <li><img src={checkmark} alt="check 아이콘"></img> 시맨틱 마크업</li>
+            <li><img src={checkmark} alt="check 아이콘"></img> UI 디자인</li>
+            <li><img src={checkmark} alt="check 아이콘"></img> 웹 디자인</li>
+            <li><img src={checkmark} alt="check 아이콘"></img> 아이콘 디자인</li>
           </ul>
-          <div className="description">웹 표준 및 웹 접근성에 대한 이해를 바탕으로 콘텐츠를 구조화하고 스타일링합니다. 다양한 디바이스와 브라우저에 대응하여 크로스 브라우징 이슈를 해결하고 사용자에게 일관된 화면을 제공합니다.</div>
+          <div className="description">
+            Figma를 활용한 UI/UX 디자인을 할 수 있습니다. 웹사이트와 앱의 인터페이스를 디자인할 수 있습니다. 포토샵을 활용한 디자인, 편집을 할 수 있으며 일러스트레이터를 활용한 벡터 이미지, svg 아이콘 제작이 가능합니다.
+          </div>
         </div>
         <div className="bg-img settings">
+            <div className="settings-box">
+              <div className="controls">
+                <p className="title">Controls</p>
+                <div className="wrap">
+                  <div className="list">
+                    <div className="subTitle">Checkbox</div>
+                    <ul>
+                      <li>
+                        <input type="checkbox" className="checkbox" id="checkbox"/>
+                        <label htmlFor="checkbox"><span>Unselected</span></label>
+                      </li>
+                      <li>
+                        <input type="checkbox" className="checkbox" id="checkbox1" defaultChecked="checked"/>
+                        <label htmlFor="checkbox1"><span>Selected</span></label>
+                      </li>
+                      <li>
+                        <input type="disabled" className="disabled" id="disabled" disabled="disabled"/>
+                        <label htmlFor="disabled"><span>Disabled</span></label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="list">
+                    <div className="subTitle">Radio</div>
+                    <ul>
+                      <li>
+                        <input type="radio" className="radio" id="checkbox"/>
+                        <label htmlFor="checkbox"><span>Unselected</span></label>
+                      </li>
+                      <li>
+                        <input type="radio" className="radio" id="radio1" defaultChecked="checked"/>
+                        <label htmlFor="radio1"><span>Selected</span></label>
+                      </li>
+                      <li>
+                        <input type="radio" className="radio" id="radio2" disabled="disabled"/>
+                        <label htmlFor="radio2"><span>Disabled</span></label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="list">
+                    <div className="subTitle">Switch</div>
+                    <ul>
+                      <li className="switch">
+                        <label>
+                          <input role="switch" type="checkbox"/>
+                          <span>알람</span>
+                        </label>
+                      </li>
+                      <li className="switch">
+                        <label>
+                          <input role="switch" type="checkbox" defaultChecked="checked"/>
+                          <span>알람</span>
+                        </label>
+                      </li>
+                      <li className="switch">
+                      <label>
+                          <input role="switch" type="checkbox" disabled/>
+                          <span>알람</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
+              <div className="navigation">
+                <p className="title">Navigation</p>
+                  <div className="wrap">
+                    <div className="list">
+                      <div className="subTitle">Checkbox</div>
+                    </div>
+                    <div className="list">
+                      <div className="subTitle">Slider</div>
+                    </div>
+                  </div>
+              </div>
+
+              <div className="input">
+                <p className="title">Input</p>
+                  <div className="wrap">
+                    <div className="list">
+                      <div className="subTitle">Text Field</div>
+                      <ul>
+                        <li>
+                          <span>Static</span>
+                          <div>
+                            <label htmlFor="textField"><span>Label</span></label>
+                            <input type="text" className="text-field" />
+                          </div>
+                        </li>
+                        <li>
+                          <span>Hover</span>
+                          <div>
+                            <label htmlFor="textField"><span>Label</span></label>
+                            <input type="text" className="text-field" />
+                          </div>
+                        </li>
+                        <li>
+                          <span>Disabled</span>
+                          <div>
+                            <label htmlFor="textField"><span>Label</span></label>
+                            <input type="text" className="text-field" />
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+
+              <div className="typography">
+                <p className="title">Typography</p>
+                  <div className="wrap">
+                    <div className="list">
+                      <div className="subTitle">Font</div>
+                      <ul>
+                        <li><span>U+0041-005A</span><span>PPMori</span></li>
+                        <li><span>U+AC00-D7A3</span><span>SpoqaHanSansNeo</span></li>
+                        <li><span>U+0041-005A</span><span>Abril Fatface</span></li>
+                        <li><span>U+0041-005A</span><span>Libre Franklin</span></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+
+              <div className="color">
+                <p className="title">Color Palette</p>
+                  <div className="wrap">
+                    <div className="list">
+                      <div className="subTitle">Neturals</div>
+                      <ul>
+                        <li></li><li></li><li></li><li></li><li></li><li></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+
+            </div>
         </div>
         <div className="vertical"></div>
         <div className="vertical v1"></div>
