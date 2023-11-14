@@ -57,10 +57,10 @@ function Nav(){
           }
         </ul>
       </div>
-      <div className='nav-right'>
+      {/* <div className='nav-right'>
         <a href='https://github.com/dpwl35' target='_blank' rel="noopener noreferrer" title="새창으로 열기 깃허브">Github</a>
         <a href='https://ji35.tistory.com/' target='_blank' rel="noopener noreferrer" title="새창으로 열기 블로그">Blog</a>
-      </div>
+      </div> */}
     </div> 
   )
 }

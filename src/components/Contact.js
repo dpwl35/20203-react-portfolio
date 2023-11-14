@@ -108,7 +108,7 @@ function Contact(){
                         delay: linkBox[idx].delay,
                         default: { duration: 1.8 }
                       }}
-                      d="M1 1.5H40M40 1.5V41M40 1.5L1 40.5" stroke="#F4F0E6" stroke-width="2"/>
+                      d="M1 1.5H40M40 1.5V41M40 1.5L1 40.5" stroke="#F4F0E6" strokeWidth="2"/>
                   </svg>
                 </div>
                 <motion.p
