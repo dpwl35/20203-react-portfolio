@@ -25,6 +25,17 @@ import plane_5 from '../assets/plane_5.svg'
 import bracket from '../assets/icon_bracket.svg'
 import arrow from '../assets/arrow-1.svg'
 
+import circle_1 from '../assets/icon_circlr_01.svg'
+import circle_2 from '../assets/icon_circlr_02.svg'
+import circle_3 from '../assets/icon_circlr_03.svg'
+import circle_4 from '../assets/icon_circlr_04.svg'
+import circle_5 from '../assets/icon_circlr_05.svg'
+import circle_6 from '../assets/icon_circlr_06.svg'
+import circle_7 from '../assets/icon_circlr_07.svg'
+import circle_8 from '../assets/icon_circlr_08.svg'
+import circle_9 from '../assets/icon_circlr_09.svg'
+import circle_10 from '../assets/icon_circlr_10.svg'
+
 function About(){
   let text = "Web Publisher"
   let splitStr = [...text] 
@@ -64,7 +75,7 @@ function About(){
   const sizeChange = (e) => { setSize(e.target.value)}
   const heightChange = (e) => { setHeight(e.target.value)}
   const fontChange = (e) => { setFont(e.target.value)}  
-  const colorChange = (e) => { setColor(e.target.value)}  
+  const colorChange = (e) => { setColor(e.target.value)} 
   
   useEffect(()=>{
     
@@ -94,7 +105,7 @@ function About(){
         <motion.div variants={list} className='grid-box'>
           <img src={plane_5} alt="도형 이미지" />
         </motion.div>
-        <motion.div variants={list} className='grid-box'>
+        <motion.div variants={list} className='grid-box plane'>
           <ul className="icon-svg">
             <li>
               <motion.img src={plane_1} alt="html 아이콘"
@@ -117,11 +128,15 @@ function About(){
               <img src={plane_4} alt="도형 이미지" />
               <img src={plane_3} alt="도형 이미지" />
               <img src={plane_2} alt="도형 이미지" />
-              <img src={plane_1} alt="도형 이미지" />
+              <motion.img src={plane_1} alt="도형 이미지" 
+                initial={{ rotate: 0  }}
+                animate={{ rotate: 90  }}
+                transition={{delay: 2.5 }}
+              />
             </li>
           </ul>
         </motion.div>
-        <motion.div variants={list}>
+        <motion.div variants={list} className="bracket">
           <img src={bracket} alt="대괄호 아이콘" />
           <span>즐기며  성장하는</span>
           <img src={bracket} className="bracket-right" alt="대괄호 아이콘" /> 
@@ -130,12 +145,12 @@ function About(){
           웹 구현에 매력을 느껴 퍼블리셔 일을 시작하게 되었습니다. 웹 표준, 웹 접근성의 중요성을 인지하며 이용자에게 좋은 사용자 경험을 제공하여 서비스의 가치를 높이고자 합니다. 
           최적의 웹 서비스구현에 대해 생각합니다. 견고한 마크업을 바탕으로 정보와 가치 전달에 대해 고민합니다. 
         </motion.div>
-        <motion.div variants={list} className='grid-box last'>scroll down</motion.div>
+        <motion.div variants={list} className='grid-box last scroll'>scroll down</motion.div>
       </motion.div>
 
       <div className="about-marquee">
-        <p>OPTIMISTIC POSITIVE ADVENTURER CREATIVE COOPERATION</p>
-        <p>OPTIMISTIC POSITIVE ADVENTURER CREATIVE COOPERATION</p>
+        <p><span>OPTIMISTIC</span> <span>POSITIVE</span> <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span></p>
+        <p><span>OPTIMISTIC</span> <span>POSITIVE</span> <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span></p>
       </div>
 
 
@@ -207,7 +222,15 @@ function About(){
           <div className="vertical"></div>
           <div className="vertical v1"></div>
           <div className="vertical v2"></div>
-          <div className="img2">durleh</div>
+          <div className="img2">
+            <ul>
+              <li><img src={circle_1} alt="아이콘"/></li>
+              <li><img src={circle_2} alt="아이콘"/></li>
+              <li><img src={circle_3} alt="아이콘"/></li>
+              <li><img src={circle_4} alt="아이콘"/></li>
+              <li><img src={circle_5} alt="아이콘"/></li>
+            </ul>
+          </div>
       </div>
 
       <div className="about-grid2 framework">
@@ -239,14 +262,30 @@ function About(){
           </div>
           <div className="bg-img settings">
           <motion.div className="container" ref={constraintsRef}>
-            <motion.div className="item item-1" drag dragConstraints={constraintsRef} />
-            <motion.div className="item item-2" drag dragConstraints={constraintsRef} />
+            <motion.div className="item item-1" drag dragConstraints={constraintsRef} >
+              <div></div><div></div><div></div><div></div>
+            </motion.div>
+            <motion.div className="item item-2" drag dragConstraints={constraintsRef}>
+              <ul>
+                <li><div></div><p></p><p></p></li>
+                <li><div></div></li>
+                <li><div></div></li>
+              </ul>
+            </motion.div>
           </motion.div>
           </div>
           <div className="vertical"></div>
           <div className="vertical v1"></div>
           <div className="vertical v2"></div>
-          <div className="img2"></div>
+          <div className="img2">
+            <ul>
+                <li><img src={circle_6} alt="아이콘"/></li>
+                <li><img src={circle_7} alt="아이콘"/></li>
+                <li><img src={circle_8} alt="아이콘"/></li>
+                <li><img src={circle_9} alt="아이콘"/></li>
+                <li><img src={circle_10} alt="아이콘"/></li>
+              </ul>
+          </div>
       </div>
 
       <div className="about-grid2 design">
@@ -362,7 +401,7 @@ function About(){
                           {
                             [1,2,3,4,5].map((a, i)=> {
                               return (
-                                  <li key={i}><a href="{() => false}">{a}</a></li>
+                                <li key={i}><a href="#!">{a}</a></li>
                               )
                             })
                           }
@@ -395,21 +434,21 @@ function About(){
                           <span>Static</span>
                           <div>
                             <label htmlFor="textField"><span>Label</span></label>
-                            <input type="text" className="text-field" placeholder="placeholder"/>
+                            <input type="text" className="text-field" placeholder="placeholder" readOnly/>
                           </div>
                         </li>
                         <li>
                           <span>Hover</span>
-                          <div>
+                          <div className="hover">
                             <label htmlFor="textField"><span>Label</span></label>
                             <input type="text" className="text-field" placeholder="placeholder" />
                           </div>
                         </li>
                         <li>
                           <span>Disabled</span>
-                          <div>
+                          <div className="disabled">
                             <label htmlFor="textField"><span>Label</span></label>
-                            <input type="text" className="text-field" placeholder="placeholder" />
+                            <input type="text" className="text-field" placeholder="placeholder" disabled/>
                           </div>
                         </li>
                       </ul>
