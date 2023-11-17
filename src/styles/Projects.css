@@ -60,6 +60,7 @@
 .card-link {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 .card-link a{
   width: fit-content;

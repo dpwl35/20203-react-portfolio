@@ -1,5 +1,6 @@
 import '../styles/Contact.css';
 import { motion } from "framer-motion"
+import { useEffect, useRef } from 'react';
 
 function Contact(){
   const linkBox = [
@@ -35,8 +36,19 @@ function Contact(){
     end: { pathLength: 1 }
   };
 
+  const contact = useRef(null);
+  
+  useEffect(()=> {
+    const divSize = contact.current.clientWidth
+
+    if (divSize <= 688) {
+      console.log('sdsd')
+    }
+
+  })
+
   return(    
-    <div className='contact-wrap'>
+    <div className='contact-wrap' ref={contact}>
       <ul className='contact-grid back'>
         <li className='horizontal-lines'>
           <span></span><span></span><span></span><span></span><span></span>
@@ -67,7 +79,7 @@ function Contact(){
             dpwl9435
             <motion.span
               initial={{ opacity: 0, scale: 0, fontSize: "0" }}
-              animate={{ opacity: 1, scale: 1, fontSize: "8rem" }}
+              animate={{ opacity: 1, scale: 1, fontSize: "8vw" }}
               transition={{
                 duration: 0.8,
                 delay: 0.5,
@@ -90,7 +102,7 @@ function Contact(){
                 //repeatDelay: 4
               }}
             >m</motion.span>
-            <span className='send'>메일 보내기</span>
+            {/* <span className='send'>메일 보내기</span> */}
           </p>
         </div>
         {

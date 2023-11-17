@@ -76,7 +76,7 @@ function Canvas() {
     }
 
     function initMouse() {
-      mouse = Mouse.create()
+      mouse = Mouse.create(canvas)
       mouseConstraint = MouseConstraint.create(engine, {
         mouse: mouse,
         constraint : {

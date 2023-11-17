@@ -274,7 +274,7 @@ function About(){
             </motion.div>
           </motion.div>
           </div>
-          <div className="vertical"></div>
+          <div className="vertical"> </div>
           <div className="vertical v1"></div>
           <div className="vertical v2"></div>
           <div className="img2">
