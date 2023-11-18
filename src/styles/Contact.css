@@ -78,6 +78,7 @@
 .contact-email p {
   position: relative;
   cursor: pointer;
+  font-size: 6vw;
 }
 .contact-email p .send {
   position: absolute;
@@ -166,6 +167,25 @@
   .front > div:nth-child(5) {grid-area: 5/5/6/6;}
 }
 
-@media all and (max-width:768px) {
-  .contact-email p {font-size: 3.5rem;}
+@media all and (max-width:480px) {
+  .link-box a > div svg { width: 32px; height: auto;} 
+  .contact-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1px 1fr 1px 1fr 1px 1fr 1px 1fr;
+  }
+  .back .vertical-lines {display: none;}
+  .horizontal-lines span:nth-child(2),
+  .horizontal-lines span:nth-child(3) {display: none;}
+  .horizontal-lines span:nth-child(1) {grid-area: 1/1/2/6;}
+  .contact-grid li:nth-child(2) {grid-area: 4/1/5/6;}
+  .front > div:nth-child(1) {
+    grid-area: 1/1/2/6; 
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+  .front > div:nth-child(3) {grid-area: 5/1/6/6;}
+  .front > div:nth-child(4) {grid-area: 7/1/8/6;}
+  .front > div:nth-child(5) {grid-area: 9/1/10/6;}
 }

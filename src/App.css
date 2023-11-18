@@ -98,6 +98,12 @@ table {
   background: rgba(220, 20, 60, .1);
 }
 
+::-moz-selection {
+	background: var(--system-orang);
+}
+::selection {
+	background: var(--system-orang);
+}
 
 *,
 *::before,

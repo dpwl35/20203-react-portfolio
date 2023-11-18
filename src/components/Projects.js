@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from 'react';
 
 import '../styles/Projects.css';
+import img from '../assets/img_00.png'
 
 function Projects(){
   const [project, setProject] = useState(null);
@@ -41,6 +42,21 @@ function Projects(){
     <div className='projects'>
       <div className='projects-title'>Projects</div>
       <motion.ul variants={container} initial="hidden" animate="visible" className='projects-list'>
+        <li variants={container} initial="hidden" animate="visible" className='projects-card'>
+          <div className='projects-img'>
+            <img src={img} alt="카드 이미지"/>
+          </div>
+          <div className="projects-desc">
+            <p className="card-title">EMS Project</p>
+            <p className="card-desc">Energy Management System 디자인 및 퍼블리싱</p>
+            <p className="card-tag">
+              <span>HTML</span><span>CSS</span><span>Figma</span>
+            </p>
+            <div className="card-link">
+              <a className="card-link-notion" href="https://www.notion.so/EMS-e4c4b5886e7c49cda0712ed3de85e4e5?pvs=4" target="_blank" rel="noopener noreferrer" title="새창으로 열기">Notion</a>
+            </div>
+          </div>
+        </li>
         {
           project && project.map((item, idx) => {
             return (

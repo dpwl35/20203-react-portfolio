@@ -489,9 +489,8 @@ function About(){
         <div className="vertical v1"></div>
       </div>
 
-      
-
-      <div className="aaa">
+      <div className="resume">
+        <span>RESUME</span>
         <motion.div
           className="box"
           ref={divRef}

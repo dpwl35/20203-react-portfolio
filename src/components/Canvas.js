@@ -11,16 +11,16 @@ import img02 from '../assets/POSITIVE.png'
 import img01 from '../assets/OPTIMISTIC.png'
 
 const data = {
-  'aaa' : { title: 'desc', desc: '안녕하세요. 포트폴리오 입니다.'},
-  'OPTIMISTIC' : { title: 'OPTIMISTIC', desc: 'AAA 설명 입니다.'},
-  'POSITIVE' : { title: 'POSITIVE', desc: 'AAA 설명 입니다.'},
-  'ADVENTURER' : { title: 'ADVENTURER', desc: 'BBB 설명 입니다.'},
-  'CREATIVE' : { title: 'CREATIVE', desc: 'CCC 설명 입니다.'},
-  'COOPERATION' : { title: 'COOPERATION', desc: 'DDD 설명 입니다.'},
+  'text' : { title: 'Hello!', desc: `안녕하세요. 웹 퍼블리셔 포트폴리오 입니다.` },
+  'OPTIMISTIC' : { title: 'OPTIMISTIC', desc: '낙관적인 사고'},
+  'POSITIVE' : { title: 'POSITIVE', desc: '긍정적인 태도'},
+  'ADVENTURER' : { title: 'ADVENTURER', desc: '모험을 즐기는'},
+  'CREATIVE' : { title: 'CREATIVE', desc: '창의적인 생각'},
+  'COOPERATION' : { title: 'COOPERATION', desc: '협조적인 태도'},
 }
 
 function Canvas() {
-  const [selected, setSelected] = useState(data['aaa'])
+  const [selected, setSelected] = useState(data['text'])
   const anchorRef = useRef(null);
   const canvasRef = useRef(null);
 
