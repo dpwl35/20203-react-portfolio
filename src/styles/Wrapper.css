@@ -78,7 +78,7 @@ section {
 
 @media all and (min-width:768px) and (max-width:1023px) { 
   section { padding:  0 2.5rem;}
-  .nav .menu {gap: 2rem;}
+  .nav .menu {gap: 3rem;}
 } 
 
 @media all and (min-width:480px) and (max-width:767px) {

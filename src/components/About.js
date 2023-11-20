@@ -36,6 +36,8 @@ import circle_8 from '../assets/icon_circlr_08.svg'
 import circle_9 from '../assets/icon_circlr_09.svg'
 import circle_10 from '../assets/icon_circlr_10.svg'
 
+import resune from '../assets/resume.png'
+
 function About(){
   let text = "Web Publisher"
   let splitStr = [...text] 
@@ -496,7 +498,9 @@ function About(){
           ref={divRef}
           variants={box} initial="hidden" whileInView="visible"
         >
-          🤟😎🤟
+          <a href="https://www.notion.so/Yeji-Kim-0356b560544a4984ab9db9b99fbba0bd?pvs=4">
+            <img src={resune} alt="이력서 이미지" target='_blank'/>
+          </a>
         </motion.div>
       </div>
 

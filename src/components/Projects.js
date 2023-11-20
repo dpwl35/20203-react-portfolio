@@ -50,7 +50,7 @@ function Projects(){
             <p className="card-title">EMS Project</p>
             <p className="card-desc">Energy Management System 디자인 및 퍼블리싱</p>
             <p className="card-tag">
-              <span>HTML</span><span>CSS</span><span>Figma</span>
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Figma</span>
             </p>
             <div className="card-link">
               <a className="card-link-notion" href="https://www.notion.so/EMS-e4c4b5886e7c49cda0712ed3de85e4e5?pvs=4" target="_blank" rel="noopener noreferrer" title="새창으로 열기">Notion</a>
