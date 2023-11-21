@@ -69,7 +69,7 @@
 	grid-row: 1 / 2;
 }
 .about-grid > div:nth-child(2) img {
-  height: 100%;
+  width: 170px;
 }
 .about-grid > div:nth-child(3) {
   grid-column: 1 / 5;
@@ -85,9 +85,9 @@
   display: flex;
   align-items: center;
 }
+.bracket > div {padding: 0 0.5rem;}
 .about-grid > div:nth-child(4) span {
   font-size: 2rem;
-  margin: 0 2rem;
 }
 .bracket-right {
   transform: rotate(180deg);
@@ -123,11 +123,44 @@
   padding-right: 2rem;
 }
 .about-grid .last {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px dashed var(--system-white)
 }
+.scroll-down > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: scrollDown 2s infinite;
+}
+.scroll-down .back-img {
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/arrow_down.svg');
+  background-repeat: repeat-x;
+  background-position-y: center;
+  background-size: auto 87%;
+  opacity: 0.2;
+  display: none;
+}
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  
+  30% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  }
 .grid-box {
   border-radius: 1rem;
   display: flex;
@@ -138,6 +171,7 @@
   overflow: hidden;
 }
 .about-marquee p {
+  width: 100vw;
   display: flex;
   gap: 0.5rem;
 }
@@ -147,22 +181,9 @@
   font-size: var(--font-size-lg);
   font-family: 'LibreFranklin';
 }
-.about-marquee p:nth-of-type(1){
-  position: relative;
-  left : -2rem;
-  margin-bottom: 1rem;
-}
-.about-marquee p:nth-of-type(2){
-  position: relative;
-  left : -18rem;
-}
 .about-marquee p span {
   border-radius: 1rem;
-  padding: 0 1rem;
 }
-.about-marquee p:nth-of-type(1) span:nth-of-type(2){background-color: var(--system-orang);}
-.about-marquee p:nth-of-type(2) span:nth-of-type(2){background-color: var(--system-purple);}
-.about-marquee p:nth-of-type(2) span:nth-of-type(3){background-color: var(--system-blue);}
 
 /* about-grid2 공통*/
 .about-grid2 {
@@ -352,6 +373,12 @@
 .framework .vertical { grid-area: 2/4/3/5; }
 .framework .vertical.v1 {grid-area: 2/2/5/3;}
 .framework .vertical.v2 {grid-area: 4/4/5/5;}
+.framework .settings .back-text {
+  position: absolute;
+  font-size: 10vw;
+  bottom: 10%;
+  opacity: 0.3;
+}
 .framework .settings .container {
   width: 100%;
   height: 100%;
@@ -810,7 +837,7 @@ input.radio + label > span {
   -ms-user-select:none;
   user-select:none;
 }
-.box {
+.resume > div {
   position: relative;
   top: 20%;
   left: 10%;
@@ -828,15 +855,47 @@ input.radio + label > span {
   backdrop-filter: blur(10px);
   overflow: hidden;
 }
-.box a {width: 100%; height: 100%; overflow: hidden;}
-.box a img {
+.resume > div a {width: 100%; height: 100%; overflow: hidden;}
+.resume > div a img {
   width: 60%;
   position: absolute;
   top: 15%;
   left: 20%;
   border-radius: 0.5rem;
 }
-
+.resume > div .balloon {
+  opacity: 1;
+  position: absolute;
+  z-index: 1;
+  background-color: var(--system-black);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 3vw;
+}
+.resume > div .balloon:after{
+  position: absolute;
+  bottom: -19px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border: solid transparent;
+  border-color: rgba(12, 12, 12, 0);
+  border-bottom-color: var(--system-black);
+  border-width: 10px;
+  pointer-events: none;
+  transform: rotate(180deg);
+  content: ' ';
+  
+}
+.resume > div:hover img {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+.resume > div:hover .balloonx {
+  display: block  !important;
+  opacity: 1;
+}
 
 @media screen and (max-width:1440px)  { 
   .about-grid > div:nth-child(2) {
@@ -867,8 +926,8 @@ input.radio + label > span {
   }
   .range-value:last-of-type {margin-bottom: 3rem;}
   .design {grid-template-columns: 25% 1px 75% 1px;}
-  .box { height: 50%;} 
-  .box a img {
+  .resume > div { height: 50%;} 
+  .resume > div a img {
     width: 70%;
     left: 15%;
   }
@@ -1004,7 +1063,7 @@ input.radio + label > span {
   .content .list li img {width: 10px;}
   .about-grid2 .content .description { width: 100%; margin-top: 1rem;}
   .about-grid2 .content .icon {margin: 0;justify-content: flex-end;}
-  .box a img {
+  .resume > div a img {
     top: 50%;
     transform: translateY(-50%);
   }
@@ -1018,4 +1077,5 @@ input.radio + label > span {
   .framework .settings .container .item-1 { height: 200px;}
   .item-2 ul li > div:nth-of-type(1) { width: 20px; height: 20px;}
   .design .bg-img {min-height: 450px;}
+  .resume > div .balloon {padding: 0.5rem; border-radius: 0.25rem;}
 }

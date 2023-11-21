@@ -11,8 +11,8 @@ import img02 from '../assets/POSITIVE.png'
 import img01 from '../assets/OPTIMISTIC.png'
 
 const data = {
-  'text' : { title: 'Hello!', desc: `안녕하세요. 웹 퍼블리셔 포트폴리오 입니다. 인터랙티브 웹과 프론트 엔드 기술에 관심이 많습니다.` },
-  'OPTIMISTIC' : { title: 'OPTIMISTIC', desc: '낙관적인 사고'},
+  'text' : { title: 'Hello! click on the word.', desc: `안녕하세요. 웹 퍼블리셔 포트폴리오 입니다. 인터랙티브 웹과 프론트 엔드 기술에 관심이 많습니다.` },
+  'OPTIMISTIC' : { title: 'OPTIMISTIC', desc: '낙관적인 사고를 가지고'},
   'POSITIVE' : { title: 'POSITIVE', desc: '언제나 긍정적인 태도로'},
   'ADVENTURER' : { title: 'ADVENTURER', desc: '모험을 즐기는! 새로운 경험과 지식 얻는 것을 좋아합니다.'},
   'CREATIVE' : { title: 'CREATIVE', desc: '창의적인 사고, 새로운 아이디어를 즐깁니다. 트렌드를 놓치지 않아요.'},

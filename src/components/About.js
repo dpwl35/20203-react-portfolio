@@ -38,9 +38,13 @@ import circle_10 from '../assets/icon_circlr_10.svg'
 
 import resune from '../assets/resume.png'
 
+
 function About(){
   let text = "Web Publisher"
   let splitStr = [...text] 
+
+  let text2 = "즐기며 성장하는"
+  let splitStr2 = [...text2] 
 
   const list = {
     hidden: { opacity: 0 },
@@ -50,10 +54,11 @@ function About(){
     }
   };
   const list1 = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, width: 0 },
     visible: {
       opacity: 1,
-      transition: { when: "beforeChildren", staggerChildren: 0.1}
+      width : 'auto' ,
+      transition: { when: "beforeChildren", staggerChildren: 0.1, duration: 2, }
     }
   };
   const item = {
@@ -64,6 +69,34 @@ function About(){
     hidden: { opacity: 0, y: '20vmin' },
     visible: { opacity: 1, y: 0, transition: { delay: 0.5 }}
   }
+
+  const marqueeVariants = {
+    animate: {
+      x: [0, -500],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 5,
+          ease: "linear",
+        },
+      },
+    }
+  };
+
+  const marqueeVariants2 = {
+    animate: {
+      x: [-500, 0],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 5,
+          ease: "linear",
+        },
+      },
+    }
+  };
 
   const divRef = useRef(null);
   const textStyle = useRef(null);
@@ -140,19 +173,39 @@ function About(){
         </motion.div>
         <motion.div variants={list} className="bracket">
           <img src={bracket} alt="대괄호 아이콘" />
-          <span>즐기며  성장하는</span>
+          <motion.div variants={list1} initial="hidden" animate="visible">
+            {
+              splitStr2.map((a, i)=> {
+                return (
+                  <motion.span variants={item} key={i}>{a}</motion.span>
+                )
+              })
+            }
+          </motion.div>
           <img src={bracket} className="bracket-right" alt="대괄호 아이콘" /> 
         </motion.div>
         <motion.div variants={list}>
-          웹 구현에 매력을 느껴 퍼블리셔 일을 시작하게 되었습니다. 웹 표준, 웹 접근성의 중요성을 인지하며 이용자에게 좋은 사용자 경험을 제공하여 서비스의 가치를 높이고자 합니다. 
-          최적의 웹 서비스구현에 대해 생각합니다. 견고한 마크업을 바탕으로 정보와 가치 전달에 대해 고민합니다. 
+           웹 구현에 매력을 느껴 퍼블리셔 일을 시작하게 되었습니다. 웹 표준, 웹 접근성의 중요성을 인지하며 이용자에게 좋은 사용자 경험을 제공하여 서비스의 가치를 높이고자 합니다. 최적의 웹 서비스구현에 대해 생각합니다. 견고한 마크업을 바탕으로 정보와 가치 전달에 대해 고민합니다.
         </motion.div>
-        <motion.div variants={list} className='grid-box last scroll'>scroll down</motion.div>
+        <motion.div variants={list} className='grid-box last scroll-down'>
+          <div className="back-img"></div>
+          <span>scroll down</span>
+        </motion.div>
       </motion.div>
 
-      <div className="about-marquee">
-        <p><span>OPTIMISTIC</span> <span>POSITIVE</span> <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span></p>
-        <p><span>OPTIMISTIC</span> <span>POSITIVE</span> <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span></p>
+      <div className="about-marquee"  animate="animate">
+        <motion.div variants={marqueeVariants} animate="animate">
+          <p>
+            <span>OPTIMISTIC</span> <span>POSITIVE</span> <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span>
+            <span>OPTIMISTIC</span> <span>POSITIVE</span> <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span>
+          </p>
+        </motion.div>
+        <motion.div variants={marqueeVariants2} animate="animate">
+          <p>
+            <span>POSITIVE</span>  <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span> <span>OPTIMISTIC</span> 
+            <span>POSITIVE</span>  <span>ADVENTURER</span> <span>CREATIVE</span> <span>COOPERATION</span> <span>OPTIMISTIC</span> 
+          </p>
+        </motion.div>
       </div>
 
 
@@ -263,18 +316,19 @@ function About(){
             </div>
           </div>
           <div className="bg-img settings">
-          <motion.div className="container" ref={constraintsRef}>
-            <motion.div className="item item-1" drag dragConstraints={constraintsRef} >
-              <div></div><div></div><div></div><div></div>
+            <div className="back-text">Drag</div>
+            <motion.div className="container" ref={constraintsRef}>
+              <motion.div className="item item-1" drag dragConstraints={constraintsRef} >
+                <div></div><div></div><div></div><div></div>
+              </motion.div>
+              <motion.div className="item item-2" drag dragConstraints={constraintsRef}>
+                <ul>
+                  <li><div></div><p></p><p></p></li>
+                  <li><div></div></li>
+                  <li><div></div></li>
+                </ul>
+              </motion.div>
             </motion.div>
-            <motion.div className="item item-2" drag dragConstraints={constraintsRef}>
-              <ul>
-                <li><div></div><p></p><p></p></li>
-                <li><div></div></li>
-                <li><div></div></li>
-              </ul>
-            </motion.div>
-          </motion.div>
           </div>
           <div className="vertical"> </div>
           <div className="vertical v1"></div>
@@ -498,9 +552,10 @@ function About(){
           ref={divRef}
           variants={box} initial="hidden" whileInView="visible"
         >
-          <a href="https://www.notion.so/Yeji-Kim-0356b560544a4984ab9db9b99fbba0bd?pvs=4">
-            <img src={resune} alt="이력서 이미지" target='_blank'/>
+          <a href="https://www.notion.so/Yeji-Kim-0356b560544a4984ab9db9b99fbba0bd?pvs=4" target='blank' title="노션 이력서 링크">
+            <img src={resune} alt="이력서 이미지" />
           </a>
+          <div className="balloon">자세한 이력서는 이곳에서 확인해주세요!</div>
         </motion.div>
       </div>
 
