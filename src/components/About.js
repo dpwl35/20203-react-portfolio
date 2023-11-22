@@ -240,7 +240,7 @@ function About(){
             <div className="range">
               <div className="select">
                 <label htmlFor="fontFamily">Font Family</label>
-                <select name="fontFamily" onChange={fontChange}>
+                <select id="fontFamily" onChange={fontChange}>
                   <option value="PPMori">PPMori</option>
                   <option value="SpoqaHanSansNeo">SpoqaHanSansNeo</option>
                   <option value="LibreFranklin">LibreFranklin</option>
@@ -413,20 +413,20 @@ function About(){
                     <div className="subTitle">Switch</div>
                     <ul>
                       <li className="switch">
-                        <label>
-                          <input role="switch" type="checkbox"/>
+                        <label htmlFor="switch">
+                          <input id="switch" role="switch" type="checkbox"/>
                           <span>Unselected</span>
                         </label>
                       </li>
                       <li className="switch">
-                        <label>
-                          <input role="switch" type="checkbox" defaultChecked="checked"/>
+                        <label htmlFor="switch2">
+                          <input id="switch2" role="switch" type="checkbox" defaultChecked="checked"/>
                           <span>Selected</span>
                         </label>
                       </li>
                       <li className="switch">
-                      <label>
-                          <input role="switch" type="checkbox" disabled/>
+                      <label htmlFor="switch3">
+                          <input id="switch3" role="switch" type="checkbox" disabled/>
                           <span>Disabled</span>
                         </label>
                       </li>
@@ -490,21 +490,21 @@ function About(){
                           <span>Static</span>
                           <div>
                             <label htmlFor="textField"><span>Label</span></label>
-                            <input type="text" className="text-field" placeholder="placeholder" readOnly/>
+                            <input id="textField" type="text" className="text-field" placeholder="placeholder" readOnly/>
                           </div>
                         </li>
                         <li>
                           <span>Hover</span>
                           <div className="hover">
-                            <label htmlFor="textField"><span>Label</span></label>
-                            <input type="text" className="text-field" placeholder="placeholder" />
+                            <label htmlFor="textField2"><span>Label</span></label>
+                            <input id="textField2" type="text" className="text-field" placeholder="placeholder" />
                           </div>
                         </li>
                         <li>
                           <span>Disabled</span>
                           <div className="disabled">
-                            <label htmlFor="textField"><span>Label</span></label>
-                            <input type="text" className="text-field" placeholder="placeholder" disabled/>
+                            <label htmlFor="textField3"><span>Label</span></label>
+                            <input id="textField3" type="text" className="text-field" placeholder="placeholder" disabled/>
                           </div>
                         </li>
                       </ul>

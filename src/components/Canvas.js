@@ -141,14 +141,20 @@ function Canvas() {
       let t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 62 / 100}
       let t5 = {w: 972 * scale, h: 97 * scale, l: cw * 33 / 100, t: ch * 77 / 100}
       
-      if (cw <= 480) {
-        scale = 0.35
-        t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
-        t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 30 / 100}
+      if (cw <= 390) {
+        scale = 0.27
+        t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 25 / 100}
+        t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 35 / 100}
         t3 = {w: 927 * scale, h: 97 * scale, l: cw * 48 / 100, t: ch * 45 / 100}
         t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 58 / 100}
         t5 = {w: 972 * scale, h: 97 * scale, l: cw * 50 / 100, t: ch * 70 / 100}
-        console.log(scale)
+      } else if (cw <= 480) {
+        scale = 0.3
+        t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 20 / 100}
+        t2 = {w: 628 * scale, h: 99 * scale, l: cw * 35 / 100, t: ch * 30 / 100}
+        t3 = {w: 927 * scale, h: 97 * scale, l: cw * 48 / 100, t: ch * 45 / 100}
+        t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 55 / 100}
+        t5 = {w: 972 * scale, h: 97 * scale, l: cw * 50 / 100, t: ch * 60 / 100}
       } else if (cw <= 768){
         scale = 0.6
         t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
@@ -156,7 +162,6 @@ function Canvas() {
         t3 = {w: 927 * scale, h: 97 * scale, l: cw * 48 / 100, t: ch * 45 / 100}
         t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 58 / 100}
         t5 = {w: 972 * scale, h: 97 * scale, l: cw * 50 / 100, t: ch * 70 / 100}
-        console.log(scale)
       } else if (cw <= 1024) {
         scale = 0.8
         t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
@@ -164,7 +169,6 @@ function Canvas() {
         t3 = {w: 927 * scale, h: 97 * scale, l: cw * 48 / 100, t: ch * 45 / 100}
         t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 58 / 100}
         t5 = {w: 972 * scale, h: 97 * scale, l: cw * 50 / 100, t: ch * 70 / 100}
-        console.log(scale)
       } else if  (cw <= 1440){
         scale = 0.9
         t1 = {w: 797 * scale, h: 99 * scale, l: cw * 40 / 100, t: ch * 15 / 100}
@@ -172,7 +176,6 @@ function Canvas() {
         t3 = {w: 927 * scale, h: 97 * scale, l: cw * 36 / 100, t: ch * 47 / 100}
         t4 = {w: 670 * scale, h: 99 * scale, l: cw * 50 / 100, t: ch * 62 / 100}
         t5 = {w: 972 * scale, h: 97 * scale, l: cw * 40 / 100, t: ch * 77 / 100}
-        console.log(scale)
       }
 
       addRect(t1.l, t1.t, t1.w , t1.h, {
@@ -215,10 +218,7 @@ function Canvas() {
       canvas.style.width = cw + 'px'
       canvas.style.height = ch + 'px'
       canvas.width = cw
-      canvas.height = ch 
-
-      console.log(cw)
-      
+      canvas.height = ch   
     }
 
     window.addEventListener('resize', resize)

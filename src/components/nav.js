@@ -25,16 +25,9 @@ function Nav(){
     },
   ]
 
-  // const setTheme = (name) => {
-  //   document.documentElement.setAttribute('data-theme', name);
-  // };
-
   const dataTheme = document.documentElement  
   const location = useLocation();
   const pathName = location.pathname.replace('/', '');
-
-  // console.log(dataTheme.dataset)
-  // console.log(pathName)
 
   dataTheme.dataset.theme = pathName
 
@@ -46,10 +39,8 @@ function Nav(){
             menuItem.map(({name, path})=>{
             return (
               <li className={ location.pathname === path ? name + ' active' :  name}
-                  onClick={() => { 
-                  navigate(path); 
-                  //setTheme(name); 
-                  }} key={path}>
+                  onClick={() => { navigate(path); }} 
+                  key={path}>
                 <div>{name}</div>
               </li>
             )
